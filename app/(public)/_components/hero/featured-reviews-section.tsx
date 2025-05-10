@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import FeaturedReviewCard from './featured-review-card';
+import FeaturedReviewCard from '../featured-review-card';
 
 export default function FeaturedReviewsSection() {
   return (

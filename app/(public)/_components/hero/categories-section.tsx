@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import CategoryCard from './category-card';
+import CategoryCard from '../category-card';
 
 export default function CategoriesSection() {
   return (
