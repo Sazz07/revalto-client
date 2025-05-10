@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
+import CategoryCard from './category-card';
 
 export default function CategoriesSection() {
   return (
@@ -25,26 +26,50 @@ export default function CategoriesSection() {
           </Link>
         </div>
 
-        {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6'>
           <CategoryCard
-            id="electronics"
-            name="Electronics"
-            icon="laptop"
+            id='electronics'
+            name='Electronics'
+            icon='laptop'
             count={1240}
-            href="/categories/electronics"
+            href='/categories/electronics'
           />
           <CategoryCard
-            id="home-kitchen"
-            name="Home & Kitchen"
-            icon="home"
+            id='home-kitchen'
+            name='Home & Kitchen'
+            icon='home'
             count={986}
-            href="/categories/home-kitchen"
+            href='/categories/home-kitchen'
           />
-          <CategoryCard id="fashion" name="Fashion" icon="shirt" count={754} href="/categories/fashion" />
-          <CategoryCard id="beauty" name="Beauty" icon="sparkles" count={632} href="/categories/beauty" />
-          <CategoryCard id="sports" name="Sports" icon="dumbbell" count={418} href="/categories/sports" />
-          <CategoryCard id="books" name="Books" icon="book-open" count={375} href="/categories/books" />
-        </div> */}
+          <CategoryCard
+            id='fashion'
+            name='Fashion'
+            icon='shirt'
+            count={754}
+            href='/categories/fashion'
+          />
+          <CategoryCard
+            id='beauty'
+            name='Beauty'
+            icon='sparkles'
+            count={632}
+            href='/categories/beauty'
+          />
+          <CategoryCard
+            id='sports'
+            name='Sports'
+            icon='dumbbell'
+            count={418}
+            href='/categories/sports'
+          />
+          <CategoryCard
+            id='books'
+            name='Books'
+            icon='book-open'
+            count={375}
+            href='/categories/books'
+          />
+        </div>
       </div>
     </section>
   );
