@@ -2,21 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Mail, Lock } from 'lucide-react';
 import { Logo } from '@/components/shared/logo';
 import { FormWrapper, FormInput, FormCheckbox } from '@/components/form';
-
-const loginSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
-  remember: z.boolean().default(false).optional(),
-});
-
-type LoginFormValues = z.infer<typeof loginSchema>;
+import { loginSchema, LoginFormValues } from '@/lib/schemas/auth-schemas';
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);

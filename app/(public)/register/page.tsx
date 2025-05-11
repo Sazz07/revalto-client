@@ -2,21 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Mail, Lock, User } from 'lucide-react';
 import { Logo } from '@/components/shared/logo';
 import { FormWrapper, FormInput } from '@/components/form';
-
-const registerSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
-});
-
-type RegisterFormValues = z.infer<typeof registerSchema>;
+import { registerSchema, RegisterFormValues } from '@/lib/schemas/auth-schemas';
 
 export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -49,13 +41,35 @@ export default function RegisterPage() {
             <FormWrapper
               schema={registerSchema}
               onSubmit={handleSubmit}
-              defaultValues={{ name: '', email: '', password: '' }}
+              defaultValues={{
+                firstName: '',
+                middleName: '',
+                lastName: '',
+                email: '',
+                password: ''
+              }}
               className='space-y-4'
             >
               <FormInput
-                name='name'
-                label='Full Name'
-                placeholder='John Doe'
+                name='firstName'
+                label='First Name'
+                placeholder='John'
+                icon={<User className='h-4 w-4' />}
+                disabled={isLoading}
+              />
+
+              <FormInput
+                name='middleName'
+                label='Middle Name (Optional)'
+                placeholder='Robert'
+                icon={<User className='h-4 w-4' />}
+                disabled={isLoading}
+              />
+
+              <FormInput
+                name='lastName'
+                label='Last Name'
+                placeholder='Doe'
                 icon={<User className='h-4 w-4' />}
                 disabled={isLoading}
               />
